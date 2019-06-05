@@ -32,7 +32,7 @@ public class BoostFunctionalTest extends AbstractBoostTest {
                                         "}\n\t" +
                                     "}\n\t" +
                                     "dependencies {\n\t\t" +
-                                        "classpath \"io.openliberty.boost:boost-gradle-plugin:\$boostVersion\"\n\t" +
+                                        "classpath \"boost:boost-gradle-plugin:\$boostVersion\"\n\t" +
                                     "}\n" +
                                 "}\n\n" +
                                 "apply plugin: 'boost'\n\n" +
