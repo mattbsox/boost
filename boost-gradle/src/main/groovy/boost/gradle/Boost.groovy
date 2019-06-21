@@ -13,6 +13,7 @@ package boost.gradle
 import org.gradle.api.*
 import net.wasdev.wlp.gradle.plugins.extensions.ServerExtension
 
+import boost.gradle.tasks.AbstractBoostTask
 import boost.gradle.extensions.BoostExtension
 import boost.gradle.utils.BoostLogger
 
@@ -20,32 +21,39 @@ public class Boost implements Plugin<Project> {
 
     final String BOOST_SERVER_NAME = 'BoostServer'
 
-    final String OPEN_LIBERTY_VERSION = '[18.0.0.3,)'
+    // final String OPEN_LIBERTY_VERSION = '[18.0.0.3,)'
 
     void apply(Project project) {
         project.extensions.create('boost', BoostExtension)
+        // project.configurations.create("boosterDependency");
 
         BoostLogger.init(project)
 
         new BoostTaskFactory(project).createTasks()
 
-        project.pluginManager.apply('net.wasdev.wlp.gradle.plugins.Liberty')
-
-        project.liberty.server = configureBoostServerProperties()
-        configureRuntimeArtifact(project)
-    }
-
-    //Overwritten by any liberty configuration in build file
-    ServerExtension configureBoostServerProperties() {
-        ServerExtension boostServer = new ServerExtension()
-        boostServer.name = BOOST_SERVER_NAME
-        boostServer.looseApplication = false
-        return boostServer
-    }
-
-    void configureRuntimeArtifact(Project project) {
-        //The libertyRuntime configuration won't be null. It is added with the Liberty plugin.
-        //A libertyRuntime configuration in the build.gradle will overwrite this.
-        project.dependencies.add('libertyRuntime', "io.openliberty:openliberty-runtime:$OPEN_LIBERTY_VERSION")
+        project.afterEvaluate {
+            AbstractBoostTask.resetRuntime()
+            AbstractBoostTask.getRuntimeInstance(project).configureRuntimePlugin(project)
+        }
     }
 }
+
+
+//         project.liberty.server = configureBoostServerProperties()
+//         configureRuntimeArtifact(project)
+//     }
+
+//     //Overwritten by any liberty configuration in build file
+//     ServerExtension configureBoostServerProperties() {
+//         ServerExtension boostServer = new ServerExtension()
+//         boostServer.name = BOOST_SERVER_NAME
+//         boostServer.looseApplication = false
+//         return boostServer
+//     }
+
+//     void configureRuntimeArtifact(Project project) {
+//         //The libertyRuntime configuration won't be null. It is added with the Liberty plugin.
+//         //A libertyRuntime configuration in the build.gradle will overwrite this.
+//         project.dependencies.add('libertyRuntime', "io.openliberty:openliberty-runtime:$OPEN_LIBERTY_VERSION")
+//     }
+// }

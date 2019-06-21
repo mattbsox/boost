@@ -20,10 +20,8 @@ public class BoostRunTask extends AbstractBoostTask {
             logging.level = LogLevel.INFO
             group 'Boost'
 
-            finalizedBy 'libertyRun'
-
             doFirst {
-                logger.info('Running the application in the foreground.')
+                AbstractBoostTask.getRuntimeInstance(project).doRun()
             }
         })
     }   

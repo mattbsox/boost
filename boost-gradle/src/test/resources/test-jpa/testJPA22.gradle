@@ -41,5 +41,5 @@ dependencies {
     compile "javax.activation:javax.activation-api:1.2.0"
     compile "javax.xml.bind:jaxb-api:2.3.0"
 
-    libertyRuntime "$runtimeGroup:$runtimeArtifactId:$runtimeVersion"
+    compile "$runtimeGroup:$runtimeArtifactId:$boosterVersion"
 }

@@ -11,7 +11,7 @@ env:
     - RUNTIME=tomee BUILD_TOOL=maven
 # - RUNTIME=ol RUNTIME_VERSION=19.0.0.2 BUILD_TOOL=gradle
 # - RUNTIME=wlp RUNTIME_VERSION=19.0.0.2 BUILD_TOOL=gradle
-# - RUNTIME=ol RUNTIME_VERSION=19.0.0.3 BUILD_TOOL=gradle
+    - RUNTIME=ol BUILD_TOOL=gradle
 # - RUNTIME=wlp RUNTIME_VERSION=19.0.0.3 BUILD_TOOL=gradle
 cache:
     directories:
@@ -48,7 +48,7 @@ script:
           export TEST_COMMAND="mvn install -Pit -DboostRuntime=$RUNTIME";
       else
           export CD_COMMAND="cd boost-gradle";
-          export TEST_COMMAND="./gradle-test.sh"
+          export TEST_COMMAND="./gradlew clean install check -Druntime=$RUNTIME --stacktrace --info"
       fi;
     - ./travis.sh
 after_failure:

@@ -20,10 +20,8 @@ public class BoostStopTask extends AbstractBoostTask {
             logging.level = LogLevel.INFO
             group 'Boost'
 
-            dependsOn 'libertyStop'
-
             doFirst {
-                logger.info('Stopping the application.')
+                AbstractBoostTask.getRuntimeInstance(project).doStop()
             }
         })
     }

@@ -43,5 +43,5 @@ dependencies {
     compile("org.apache.httpcomponents:httpcore:4.4.10")
     compile "javax.servlet:javax.servlet-api:4.0.0"
 
-    libertyRuntime "$runtimeGroup:$runtimeArtifactId:$runtimeVersion"
+    compile "$runtimeGroup:$runtimeArtifactId:$boosterVersion"
 }

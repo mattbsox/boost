@@ -38,5 +38,5 @@ dependencyManagement {
 dependencies {
 	compile "boost.boosters:jaxrs"
 
-    libertyRuntime "$runtimeGroup:$runtimeArtifactId:$runtimeVersion"
+    compile "$runtimeGroup:$runtimeArtifactId:$boosterVersion"
 }

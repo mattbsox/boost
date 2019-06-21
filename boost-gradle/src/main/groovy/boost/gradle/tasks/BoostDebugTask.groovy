@@ -20,10 +20,8 @@ public class BoostDebugTask extends AbstractBoostTask {
             logging.level = LogLevel.INFO
             group 'Boost'
 
-            finalizedBy 'libertyDebug'
-
             doFirst {
-                logger.info('Running the application in debug mode.')
+                AbstractBoostTask.getRuntimeInstance(project).doDebug()
             }
         })
     }   

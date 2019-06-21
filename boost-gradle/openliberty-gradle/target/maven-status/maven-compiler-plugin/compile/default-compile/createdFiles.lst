@@ -1,0 +1,12 @@
+boost/runtimes/openliberty/boosters/LibertyJDBCBoosterConfig.class
+boost/runtimes/openliberty/boosters/LibertyMPHealthBoosterConfig.class
+boost/runtimes/openliberty/boosters/LibertyCDIBoosterConfig.class
+boost/runtimes/openliberty/boosters/LibertyJaxRSBoosterConfig.class
+boost/runtimes/openliberty/boosters/LibertyBoosterI.class
+boost/runtimes/openliberty/LibertyRuntime.class
+boost/runtimes/openliberty/boosters/LibertyMPOpenTracingBoosterConfig.class
+boost/runtimes/openliberty/boosters/LibertyJSONPBoosterConfig.class
+boost/runtimes/openliberty/LibertyServerConfigGenerator.class
+boost/runtimes/openliberty/boosters/LibertyMPConfigBoosterConfig.class
+boost/runtimes/openliberty/boosters/LibertyMPRestClientBoosterConfig.class
+boost/runtimes/openliberty/boosters/LibertyJPABoosterConfig.class

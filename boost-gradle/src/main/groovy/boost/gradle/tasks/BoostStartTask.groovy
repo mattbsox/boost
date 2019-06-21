@@ -20,10 +20,9 @@ public class BoostStartTask extends AbstractBoostTask {
             logging.level = LogLevel.INFO
             group 'Boost'
 
-            dependsOn 'libertyStart'
-
             doFirst {
                 logger.info('Starting the application.')
+                AbstractBoostTask.getRuntimeInstance(project).doStart(false, 0, 0)
             }
         })
     }
